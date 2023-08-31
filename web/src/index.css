@@ -1,0 +1,21 @@
+@import "@blueprintjs/core/lib/css/blueprint.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply text-8xl;
+    @apply font-bold;
+  }
+  h2 {
+    @apply text-3xl;
+  }
+  h3 {
+    @apply text-lg;
+  }
+  a {
+    @apply text-blue-600 underline;
+  }
+}
