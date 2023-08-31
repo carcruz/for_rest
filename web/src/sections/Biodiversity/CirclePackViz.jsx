@@ -1,6 +1,6 @@
 // install (please try to align the version of installed @nivo packages)
 // yarn add @nivo/circle-packing
-import { ResponsiveCirclePacking } from "@nivo/circle-packing";
+import { ResponsiveCirclePackingCanvas } from "@nivo/circle-packing";
 
 // make sure parent container have a defined height when using
 // responsive component, otherwise height will be 0 and
@@ -8,7 +8,7 @@ import { ResponsiveCirclePacking } from "@nivo/circle-packing";
 // website examples showcase many properties,
 // you'll often use just a few of them.
 const CirclePackingViz = ({ data /* see data tab */ }) => (
-  <ResponsiveCirclePacking
+  <ResponsiveCirclePackingCanvas
     data={data}
     margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
     id="name"
@@ -31,14 +31,6 @@ const CirclePackingViz = ({ data /* see data tab */ }) => (
       from: "color",
       modifiers: [["darker", 0.5]],
     }}
-    fill={[
-      {
-        match: {
-          depth: 1,
-        },
-        id: "lines",
-      },
-    ]}
   />
 );
 
