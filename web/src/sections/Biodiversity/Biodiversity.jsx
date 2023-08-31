@@ -1,4 +1,6 @@
 import SectionWrapper from "../../components/SectionWrapper";
+import CirclePackingViz from "./CirclePackViz";
+import { startData, endData } from "./sampleData";
 
 function Biodiversity() {
   return (
@@ -8,15 +10,26 @@ function Biodiversity() {
           <h2>Biodiversity</h2>
           <div className="flex flex-row p-10">
             <div className="w-1/2">
-              <h3>Gradual addition of complexity</h3>
+              <h3></h3>
               <div style={{ height: "450px" }} className="pt-12">
                 hi
               </div>
             </div>
             <div className="w-1/2">
-              <h3>Resources</h3>
-              <div style={{ height: "450px" }} className="pt-12">
-                hi
+              <h3></h3>
+              <div className="flex">
+                <div
+                  style={{ height: "350px", width: "100%" }}
+                  className="pt-12"
+                >
+                  <CirclePackingViz data={startData} />
+                </div>
+                <div
+                  style={{ height: "350px", width: "100%" }}
+                  className="pt-12"
+                >
+                  <CirclePackingViz data={endData} />
+                </div>
               </div>
             </div>
           </div>
