@@ -1,4 +1,4 @@
-export const endData = {
+export const startData = {
   name: "nivo",
   color: "rgb(226 232 240);",
   children: [
@@ -6,6 +6,16 @@ export const endData = {
       name: "viz",
       color: "rgb(71 85 105);",
       loc: 8235,
+    },
+    {
+      name: "colors",
+      color: "rgb(148 163 184);",
+      loc: 82234,
+    },
+    {
+      name: "utils",
+      color: "rgb(148 163 184);",
+      loc: 82456,
     },
     {
       name: "generators",
@@ -30,7 +40,7 @@ export const endData = {
   ],
 };
 
-export const startData = {
+export const endData = {
   name: "nivo",
   color: "rgb(226 232 240);",
   children: [
@@ -38,16 +48,6 @@ export const startData = {
       name: "viz",
       color: "rgb(71 85 105);",
       loc: 8235,
-    },
-    {
-      name: "colors",
-      color: "rgb(148 163 184);",
-      loc: 82234,
-    },
-    {
-      name: "utils",
-      color: "rgb(148 163 184);",
-      loc: 82456,
     },
     {
       name: "generators",

@@ -2,6 +2,7 @@ import HeroBanner from "./sections/HeroBanner";
 import Theory from "./sections/Theory/Theory";
 import FactorsOfGrowing from "./sections/FactorsOfGrowing/FactorsOfGrowing";
 import Biodiversity from "./sections/Biodiversity/Biodiversity";
+import Model from "./sections/Model/Model";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Theory />
       <FactorsOfGrowing />
       <Biodiversity />
+      <Model />
     </main>
   );
 }
