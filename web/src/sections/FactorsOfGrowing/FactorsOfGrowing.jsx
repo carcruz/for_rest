@@ -1,4 +1,5 @@
 import SectionWrapper from "../../components/SectionWrapper";
+import Resources from "./Resources";
 
 function FactorsOfGrowing() {
   return (
@@ -16,7 +17,7 @@ function FactorsOfGrowing() {
             <div className="w-1/2">
               <h3>Resources</h3>
               <div style={{ height: "450px" }} className="pt-12">
-                hi
+                <Resources />
               </div>
             </div>
           </div>
