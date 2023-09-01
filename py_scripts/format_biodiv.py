@@ -37,7 +37,6 @@ def process_data(data,color1,color2,color0,name):
 		ans += f'''{{name: "{family}", 
 					color: "{color1}",
 					children: [
-					}}
 					'''
 		for s_data in f_data['children']:
 			ans += f'''
@@ -45,7 +44,7 @@ def process_data(data,color1,color2,color0,name):
 						name: "{s_data['name']}", 
 					color: "{color2}",
 					loc:{s_data['loc']}
-						}}
+						}},
 			'''
 		ans += f'''],}}
 		'''
