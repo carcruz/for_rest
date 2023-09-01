@@ -46,7 +46,7 @@ def process_data(data,color1,color2,color0,name):
 					loc:{s_data['loc']}
 						}},
 			'''
-		ans += f'''],}}
+		ans += f'''],}},
 		'''
 	ans += f'''],
 '''
