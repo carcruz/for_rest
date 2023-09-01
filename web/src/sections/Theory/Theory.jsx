@@ -25,8 +25,8 @@ function Theory() {
               </div>
             </div>
             <div className="w-1/2">
-              <h3>Growth chart</h3>
-              <div style={{ height: "450px" }} className="pt-12">
+              <h3></h3>
+              <div style={{ height: "450px" }} className="pt-20">
                 <GrowthChart />
               </div>
             </div>

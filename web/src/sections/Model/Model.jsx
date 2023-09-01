@@ -1,6 +1,4 @@
 import SectionWrapper from "../../components/SectionWrapper";
-import ModelControlls from "./ModelControlls";
-import ModelViz from "./ModelViz";
 import Map from "./Map";
 import { useState } from "react";
 import { modelMapData, realMapData } from "./data/panama/mapData";

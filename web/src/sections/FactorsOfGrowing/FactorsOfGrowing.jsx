@@ -4,7 +4,7 @@ import Resources from "./Resources";
 function FactorsOfGrowing() {
   return (
     <SectionWrapper sectionId="hero-banner">
-      <div className=" bg-slate-100 w-full h-full">
+      <div className=" bg-slate-100 min-h-full">
         <div className="container mx-auto px-4 py-10">
           <h2>Factors of Growing</h2>
           <div className="flex flex-col p-10 md:flex-row">
