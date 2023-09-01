@@ -1,4 +1,4 @@
-import HeroBanner from "./sections/HeroBanner";
+import HeroBanner from "./sections/HeroBanner/HeroBanner";
 import Theory from "./sections/Theory/Theory";
 import FactorsOfGrowing from "./sections/FactorsOfGrowing/FactorsOfGrowing";
 import Biodiversity from "./sections/Biodiversity/Biodiversity";
