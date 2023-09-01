@@ -8,6 +8,24 @@ datafolder = os.path.join(os.path.dirname(os.path.dirname(__file__)),'web','src'
 if not os.path.exists(datafolder):
 	os.makedirs(datafolder)
 
+def get_r_distrib(data,divs=20,norm=True):
+	r_list = [a['r'] for a in data]
+	distrib = [0 for i in range(divs+1)]
+	if norm:
+		delta = 1./max(len(r_list),1.)
+	else:
+		delta = 1
+	for r in r_list:
+		i = int(divs*r)
+		distrib[i] += delta
+	return distrib
+
+def process_data(data,divs=20):
+	distrib = get_r_distrib(data)
+	ans = [dict(time=i*1./divs,value=d) for i,d in enumerate(distrib)]
+	return ans
+
+
 
 def gen_js(realdata,modeldata,max_x=None,max_y=None,min_x=None,min_y=None,):
 	if max_x is None:
@@ -18,6 +36,7 @@ def gen_js(realdata,modeldata,max_x=None,max_y=None,min_x=None,min_y=None,):
 		max_y = max([r['long'] for r in realdata+modeldata if r['long'] is not None])
 	if min_y is None:
 		min_y = min([r['long'] for r in realdata+modeldata if r['long'] is not None])
+
 
 	return f'''
 	import L from "leaflet";
@@ -37,7 +56,7 @@ export const mapBoundaries = L.latLngBounds(mapCorner1, mapCorner2);
  * LINE CHART RELATED *
  **********************/
 
-export const lineChartData = {json.dumps([])};'''
+export const lineChartData = {json.dumps(process_data(realdata))};'''
 
 
 def get_data(query,norm=True):
@@ -109,7 +128,7 @@ d_list = [
 		pretty_name='Josefstadt, Vienna, Austria',
 		table_real='trees_josefstadt',
 		gen_func_real=get_data_osm,
-		table_model='sim_results_test',
+		table_model='sim_results_josefstadt',
 		gen_func_model=get_data_sim,
 		),
 	dict(name='alaska',
