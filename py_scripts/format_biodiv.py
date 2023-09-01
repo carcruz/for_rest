@@ -3,7 +3,8 @@ import psycopg2
 import datetime
 import json
 
-datafolder = os.path.join(os.path.dirname(os.path.dirname(__file__)),'web','sections','Biodiversity')
+datafolder = os.path.join(os.path.dirname(os.path.dirname(__file__)),'web','src','sections','Biodiversity')
+
 
 if not os.path.exists(datafolder):
 	os.makedirs(datafolder)
@@ -88,15 +89,29 @@ def get_data_panama(table_name='panama',t=datetime.datetime.now()):
 	else:
 		prefix = ''
 	return get_data(query=f'''
-		WITH prequery AS (SELECT MAX("Status") AS status,avg(st_y(geometry)) as lat,avg(st_x(geometry)) as long, max("DBH")/1000. as r from {table_name}
+		WITH prequery AS (SELECT MAX("Status") AS status,MAX("Family") AS family, MAX("Genus") as genus,avg(st_y(geometry)) as lat,avg(st_x(geometry)) as long, max("DBH")/1000. as r from {table_name}
 			WHERE "{prefix}Date"<='{t.strftime('%Y-%m-%d')}'
 			GROUP BY "StemID"
 			)
-		SELECT lat,long,r FROM prequery
+		SELECT family,genus,count(*) FROM prequery
 			WHERE status='alive'
+			GROUP BY family,genus
 			;''')
 
 
+def get_data_panama_start(table_name):
+	return get_data_panama(table_name=table_name,t=datetime.datetime(1990,1,1))
+
+'''
+with pfull as (select ("Date"/(364*5))::int*5 + 1960 as yr,min("DBH") AS "DBH", max("Status") as "Status","Family", "Genus" from panama_full
+where "Status"='alive'
+group by yr,"StemID","Family", "Genus")
+SELECT "Family", "Genus", count(*) as countstemid FROM pfull
+where "yr"='1985'
+group by yr,"Status","Family", "Genus"
+order by "Status", "Genus", yr, countstemid desc;
+
+'''
 # print(get_data_panama(table_name='panama_full',t=datetime.datetime(1990,1,1)))
 
 # with open(os.path.join(datafolder,'test.js'),'w') as f:
@@ -113,12 +128,12 @@ d_list = [
 	# 	table_model='panama',
 	# 	gen_func_model=get_data_panama,
 	# 	),
-	dict(name='turkenschanzpark',
-		pretty_name='Türkenschanzpark, Vienna, Austria',
-		table_real='trees_tuerkenschanzpark',
-		gen_func_real=get_data_osm,
-		table_model='trees_tuerkenschanzpark',
-		gen_func_model=get_data_osm,
+	dict(name='panama',
+		pretty_name='Barro Colorado Island, Panama',
+		table_real='panama_full',
+		gen_func_real=get_data_panama_start,
+		table_model='panama_full',
+		gen_func_model=get_data_panama,
 		),
 ]
 

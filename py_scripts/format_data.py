@@ -3,7 +3,7 @@ import psycopg2
 import datetime
 import json
 
-datafolder = 'datafolder'
+datafolder = os.path.join(os.path.dirname(os.path.dirname(__file__)),'web','src','sections','Model','data')
 
 if not os.path.exists(datafolder):
 	os.makedirs(datafolder)
@@ -89,12 +89,19 @@ d_list = [
 	# 	table_model='panama',
 	# 	gen_func_model=get_data_panama,
 	# 	),
-	dict(name='turkenschanzpark',
-		pretty_name='Türkenschanzpark, Vienna, Austria',
-		table_real='panama',
-		gen_func_real=get_data_panama,
-		table_model='panama',
-		gen_func_model=get_data_panama,
+	# dict(name='turkenschanzpark',
+	# 	pretty_name='Türkenschanzpark, Vienna, Austria',
+	# 	table_real='panama',
+	# 	gen_func_real=get_data_panama,
+	# 	table_model='panama',
+	# 	gen_func_model=get_data_panama,
+	# 	),
+	dict(name='josefstadt',
+		pretty_name='Josefstadt, Vienna, Austria',
+		table_real='trees_josefstadt',
+		gen_func_real=get_data_osm,
+		table_model='sim_results_test',
+		gen_func_model=get_data_sim,
 		),
 ]
 
@@ -110,10 +117,11 @@ for d in d_list:
 import {{ {name}modelMapData, {name}realMapData }} from "./data/{name}/mapData";
 
 const {name}MapState = {{
-  name: "{pretty_name}",
+  name: "{d['pretty_name']}",
   realData: {name}realMapData,
   modelData: {name}modelMapData,
 }};
 	'''
 
-print(extra)
+with open(os.path.join(datafolder,f'listing.js'),'w') as f:
+	f.write(extra_js)
