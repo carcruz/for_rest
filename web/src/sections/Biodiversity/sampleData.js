@@ -6,6 +6,13 @@ export const startData = {
       name: "Violaceae",
       color: "rgb(71 85 105);",
       loc: 55194,
+      children: [
+        {
+        name: "Violaceae",
+        color: "rgb(71 85 105);",
+        loc: 55194
+        },
+      ]
     },
     {
       name: "Rubiaceae",
@@ -57,8 +64,57 @@ export const startData = {
       color: "rgb(71 85 105);",
       loc: 9289,
     },
-  ],
-};
+    {
+      name: "Clusiaceae",
+      color: "rgb(71 85 105);",
+      loc: 5671,
+    },
+    {
+      name: "Lauraceae",
+      color: "rgb(148 163 184);",
+      loc: 5659,
+    },
+    {
+      name: "Chrysobalanaceae",
+      color: "rgb(148 163 184);",
+      loc: 5555,
+    },
+    {
+      name: "Myrtaceae",
+      color: "rgb(71 85 105);",
+      loc: 5458,
+    },
+    {
+      name: "Capparaceae",
+      color: "rgb(71 85 105);",
+      loc: 4657,
+    },
+    {
+      name: "Malvaceae",
+      color: "rgb(71 85 105);",
+      loc: 4094,
+    },
+     {
+      name: "Euphorbiaceae",
+      color: "rgb(71 85 105);",
+      loc: 3594,
+    },
+         {
+      name: "Salicaceae",
+      color: "rgb(71 85 105);",
+      loc: 3593,
+    },
+         {
+      name: "Sapindaceae",
+      color: "rgb(71 85 105);",
+      loc: 3349,
+    },
+         {
+      name: "Myristicaceae",
+      color: "rgb(71 85 105);",
+      loc: 2754,
+    },
+  ]};
 
 export const endData = {
   name: "nivo",
@@ -118,6 +174,56 @@ export const endData = {
       name: "Clusiaceae",
       color: "rgb(71 85 105);",
       loc: 6477,
+    },
+    {
+      name: "Moraceae",
+      color: "rgb(71 85 105);",
+      loc: 6243,
+    },
+    {
+      name: "Chrysobalanaceae",
+      color: "rgb(71 85 105);",
+      loc: 5125,
+    },
+    {
+      name: "Sapindaceae",
+      color: "rgb(71 85 105);",
+      loc: 4311,
+    },
+    {
+      name: "Lauraceae",
+      color: "rgb(71 85 105);",
+      loc: 4260,
+    },
+    {
+      name: "Euphorbiaceae",
+      color: "rgb(71 85 105);",
+      loc: 4122,
+    },
+        {
+      name: "Malvaceae",
+      color: "rgb(71 85 105);",
+      loc: 3999,
+    },
+        {
+      name: "Capparaceae",
+      color: "rgb(71 85 105);",
+      loc: 2945,
+    },
+        {
+      name: "Apocynaceae",
+      color: "rgb(71 85 105);",
+      loc: 2664,
+    },
+        {
+      name: "Calophyllaceae",
+      color: "rgb(71 85 105);",
+      loc: 2308,
+    },
+            {
+      name: "Salicaceae",
+      color: "rgb(71 85 105);",
+      loc: 2180,
     },
   ],
 };
