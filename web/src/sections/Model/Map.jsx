@@ -2,7 +2,7 @@ import { MapContainer, TileLayer, Circle } from "react-leaflet";
 import { v1 } from "uuid";
 import * as d3 from "d3";
 
-const rScale = d3.scaleLinear().domain([0, 1]).range([2, 35]);
+const rScale = d3.scaleLinear().domain([0, 1]).range([2, 10]);
 
 const fillStyleeOptions = (color) => ({
   fillColor: color,

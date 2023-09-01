@@ -5,7 +5,7 @@ import GrowthRepresentation from "./GrowthRepresentation";
 function Theory() {
   return (
     <SectionWrapper sectionId="hero-banner">
-      <div className=" bg-slate-200 w-full min-h-full">
+      <div className=" bg-slate-200 w-full min-h-full overflow-hidden">
         <div className="container mx-auto px-4 py-10">
           <h2>Theory</h2>
           <p className="py-10 text-lg">

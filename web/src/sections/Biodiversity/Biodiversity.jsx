@@ -1,6 +1,7 @@
 import SectionWrapper from "../../components/SectionWrapper";
 import CirclePackingViz from "./CirclePackViz";
-import { startData, endData } from "./sampleData";
+// import { startData, endData } from "./sampleData";
+import { startData, endData } from "./panama/biodivData";
 
 function Biodiversity() {
   return (

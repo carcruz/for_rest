@@ -1,17 +1,23 @@
 import SectionWrapper from "../../components/SectionWrapper";
 import Map from "./Map";
 import { useState } from "react";
-import { modelMapData, realMapData } from "./data/panama/mapData";
 import ForestLineChart from "../../components/LineChart";
+import {
+  // panamaMapState,
+  // turkenschanzparkMapState,
+  josefstadtMapState,
+  // alaskaMapState,
+} from "./listing";
 
-const vienatMapState = {
-  center: [48.235, 16.3338],
-  realData: realMapData,
-  modelData: modelMapData,
-};
+// const vienatMapState = {
+//   center: [48.235, 16.3338],
+//   realData: realMapData,
+//   modelData: modelMapData,
+// };
 
 function Model() {
-  const [mapState, setMapState] = useState(vienatMapState);
+  const [mapState, setMapState] = useState(josefstadtMapState);
+  console.log(mapState);
 
   return (
     <SectionWrapper sectionId="hero-banner">
