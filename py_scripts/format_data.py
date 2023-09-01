@@ -40,11 +40,20 @@ export const mapBoundaries = L.latLngBounds(mapCorner1, mapCorner2);
 export const lineChartData = {json.dumps([])};'''
 
 
-def get_data(query):
+def get_data(query,norm=True):
 	with psycopg2.connect(user='wschuell',host='195.154.70.113',dbname='for_rest',port=64741) as con:
 		cur = con.cursor()
 		cur.execute(query)
-		return [dict(lat=lat,long=lon,r=r) for lat,lon,r in cur.fetchall()]
+		ans = [dict(lat=lat,long=lon,r=r) for lat,lon,r in cur.fetchall()]
+
+		if norm:
+			r_max = max([a['r'] for a in ans])
+			if r_max > 0:
+				for a in ans:
+					a['r'] = a['r']*1./r_max 
+
+
+		return ans
 
 def get_data_osm(table_name):
 	return get_data(query=f'''SELECT st_y(geometry) as lat,st_x(geometry) as long, coalesce(circumference::real/6.28,0.) as r from {table_name};''')
@@ -93,8 +102,8 @@ d_list = [
 		pretty_name='Türkenschanzpark, Vienna, Austria',
 		table_real='trees_tuerkenschanzpark',
 		gen_func_real=get_data_osm,
-		table_model='trees_tuerkenschanzpark',
-		gen_func_model=get_data_osm,
+		table_model='sim_results_turkenschanzpark',
+		gen_func_model=get_data_sim,
 		),
 	dict(name='josefstadt',
 		pretty_name='Josefstadt, Vienna, Austria',

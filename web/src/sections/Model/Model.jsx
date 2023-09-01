@@ -2,11 +2,12 @@ import SectionWrapper from "../../components/SectionWrapper";
 import Map from "./Map";
 import { useState } from "react";
 import ForestLineChart from "../../components/LineChart";
+import { HTMLSelect } from "@blueprintjs/core";
 import {
   // panamaMapState,
   // turkenschanzparkMapState,
   josefstadtMapState,
-  // alaskaMapState,
+  alaskaMapState,
 } from "./listing";
 
 // const vienatMapState = {
@@ -17,13 +18,30 @@ import {
 
 function Model() {
   const [mapState, setMapState] = useState(josefstadtMapState);
-  console.log(mapState);
+  const SELECT_OPTIONS = ["josefstadt", "alaska"];
+
+  const handleSelectChange = (value) => {
+    if (value === "josefstadt") {
+      setMapState(josefstadtMapState);
+    }
+    if (value === "alaska") {
+      setMapState(alaskaMapState);
+    }
+  };
+
+  console.log({ mapState });
 
   return (
     <SectionWrapper sectionId="hero-banner">
       <div className=" bg-slate-100 min-h-full">
         <div className="container mx-auto px-4 py-10">
           <h2>Model</h2>
+          <HTMLSelect
+            options={SELECT_OPTIONS}
+            onChange={(e) => {
+              handleSelectChange(e.target.value);
+            }}
+          />
           <div className="flex flex-col py-10 md:flex-row gap-10">
             <div className="w-1/2">
               <h3>Realworld data</h3>

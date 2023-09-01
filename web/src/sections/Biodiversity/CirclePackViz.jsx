@@ -1,6 +1,6 @@
 // install (please try to align the version of installed @nivo packages)
 // yarn add @nivo/circle-packing
-import { ResponsiveCirclePacking } from "@nivo/circle-packing";
+import { ResponsiveCirclePackingCanvas } from "@nivo/circle-packing";
 import { useState } from "react";
 
 // make sure parent container have a defined height when using
@@ -11,7 +11,7 @@ import { useState } from "react";
 const CirclePackingViz = ({ data /* see data tab */ }) => {
   const [zoomedId, setZoomedId] = useState(null);
   return (
-    <ResponsiveCirclePacking
+    <ResponsiveCirclePackingCanvas
       data={data}
       zoomedId={zoomedId}
       margin={{ top: 20, right: 20, bottom: 20, left: 20 }}

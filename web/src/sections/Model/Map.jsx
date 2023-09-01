@@ -1,13 +1,23 @@
 import { MapContainer, TileLayer, Circle } from "react-leaflet";
 import { v1 } from "uuid";
 import * as d3 from "d3";
+import { useEffect } from "react";
+import { useMap } from "react-leaflet";
 
-const rScale = d3.scaleLinear().domain([0, 1]).range([2, 10]);
+const rScale = d3.scaleLinear().domain([0, 1]).range([2, 40]);
 
 const fillStyleeOptions = (color) => ({
   fillColor: color,
   fillOpacity: 0.3,
 });
+
+const RecenterAutomatically = ({ lat, lng }) => {
+  const map = useMap();
+  useEffect(() => {
+    map.setView([lat, lng]);
+  }, [lat, lng]);
+  return null;
+};
 
 function Map({ center, points = [], color }) {
   return (
@@ -26,6 +36,7 @@ function Map({ center, points = [], color }) {
             center={[point.lat, point.long]}
           />
         ))}
+        <RecenterAutomatically lat={center[0]} lng={center[1]} />
       </MapContainer>
     </div>
   );

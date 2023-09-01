@@ -2,7 +2,10 @@ import HeroBanner from "./sections/HeroBanner";
 import Theory from "./sections/Theory/Theory";
 import FactorsOfGrowing from "./sections/FactorsOfGrowing/FactorsOfGrowing";
 import Biodiversity from "./sections/Biodiversity/Biodiversity";
-import Model from "./sections/Model/Model";
+import ModelPlayground from "./sections/ModelPlayground/Model";
+import { lazy, Suspense } from "react";
+
+const Model = lazy(() => import("./sections/Model/Model"));
 
 function App() {
   return (
@@ -11,7 +14,11 @@ function App() {
       <Theory />
       <FactorsOfGrowing />
       <Biodiversity />
-      <Model />
+      <Suspense fallback={<div>Loading ...</div>}>
+        <Model />
+      </Suspense>
+      <ModelPlayground />
+      <HeroBanner />
     </main>
   );
 }

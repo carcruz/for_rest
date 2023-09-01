@@ -10,7 +10,7 @@ if not os.path.exists(datafolder):
 	os.makedirs(datafolder)
 
 
-def gen_js(start_data,end_data,color1="rgb(226 232 240);",color2="rgb(226 232 240);",color0="rgb(226 232 240);"):
+def gen_js(start_data,end_data,color0="#c1e7ff",color1="#7aa6c2",color2="#346888"):
 
 	return f'''export const startData = {{
 			  		{process_data(start_data,color1=color1,color2=color2,color0=color0,name='Biodiversity start')}
@@ -101,6 +101,25 @@ def get_data_panama(table_name='panama',t=datetime.datetime.now()):
 
 def get_data_panama_start(table_name):
 	return get_data_panama(table_name=table_name,t=datetime.datetime(1990,1,1))
+
+
+
+def get_data_panama_end(table_name='panama',t=datetime.datetime.now()):
+	if table_name=='panama_full':
+		prefix = 'Exact'
+	else:
+		prefix = ''
+	return get_data(query=f'''
+		WITH prequery AS (SELECT MAX("Status") AS status,MAX("Family") AS family, MAX("Genus") as genus,avg(st_y(geometry)) as lat,avg(st_x(geometry)) as long, max("DBH")/1000. as r from {table_name}
+			WHERE "{prefix}Date"<='{t.strftime('%Y-%m-%d')}'
+			AND "{prefix}Date">='{(t-datetime.timedelta(years=5)).strftime('%Y-%m-%d')}'
+			GROUP BY "StemID"
+			)
+		SELECT family,genus,count(*) FROM prequery
+			WHERE status='alive'
+			GROUP BY family,genus
+			;''')
+
 
 '''
 with pfull as (select ("Date"/(364*5))::int*5 + 1960 as yr,min("DBH") AS "DBH", max("Status") as "Status","Family", "Genus" from panama_full
