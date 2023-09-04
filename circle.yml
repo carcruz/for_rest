@@ -30,7 +30,7 @@ jobs:
       - image: circleci/node:7.10
     steps:
       - checkout
-      - run: npm install surge
+      - run: cd ./web
       - run: surge --project ./dist
 workflows:
   version: 2
