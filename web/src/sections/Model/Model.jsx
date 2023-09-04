@@ -5,7 +5,7 @@ import ForestLineChart from "../../components/LineChart";
 import { HTMLSelect } from "@blueprintjs/core";
 import {
   // panamaMapState,
-  // turkenschanzparkMapState,
+  turkenschanzparkMapState,
   josefstadtMapState,
   alaskaMapState,
 } from "./listing";
@@ -18,7 +18,7 @@ import {
 
 function Model() {
   const [mapState, setMapState] = useState(josefstadtMapState);
-  const SELECT_OPTIONS = ["josefstadt", "alaska"];
+  const SELECT_OPTIONS = ["josefstadt", "alaska", "turkenschanzpar"];
 
   const handleSelectChange = (value) => {
     if (value === "josefstadt") {
@@ -27,9 +27,10 @@ function Model() {
     if (value === "alaska") {
       setMapState(alaskaMapState);
     }
+    if (value === "turkenschanzpar") {
+      setMapState(turkenschanzparkMapState);
+    }
   };
-
-  console.log({ mapState });
 
   return (
     <SectionWrapper sectionId="hero-banner">

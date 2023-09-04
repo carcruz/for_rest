@@ -449,7 +449,13 @@ class GrowthChart extends PureComponent {
           <YAxis />
           <Tooltip />
           <Legend />
-          <Line type="monotone" dataKey="growth" stroke="#82ca9d" />
+          <Line
+            type="monotone"
+            dataKey="growth"
+            stroke="rgba(0,100,0,0.8)"
+            animationDuration={8000}
+            strokeWidth={3}
+          />
         </LineChart>
       </ResponsiveContainer>
     );

@@ -2,10 +2,10 @@
 //   modelMapData as panamamodelMapData,
 //   realMapData as panamarealMapData,
 // } from "./data/panama/mapData";
-// import {
-//   modelMapData as turkenschanzparkmodelMapData,
-//   realMapData as turkenschanzparkrealMapData,
-// } from "./data/turkenschanzpark/mapData";
+import {
+  modelMapData as turkenschanzparkmodelMapData,
+  realMapData as turkenschanzparkrealMapData,
+} from "./data/turkenschanzpark/mapData";
 import {
   modelMapData as alaskamodelMapData,
   realMapData as alaskarealMapData,
@@ -22,12 +22,12 @@ import {
 //   center: [48.235, 16.3338],
 // };
 
-// export const turkenschanzparkMapState = {
-//   name: "Türkenschanzpark, Vienna, Austria",
-//   realData: turkenschanzparkrealMapData,
-//   modelData: turkenschanzparkmodelMapData,
-//   center: [48.235, 16.3338],
-// };
+export const turkenschanzparkMapState = {
+  name: "Türkenschanzpark, Vienna, Austria",
+  realData: turkenschanzparkrealMapData,
+  modelData: turkenschanzparkmodelMapData,
+  center: [48.235, 16.3338],
+};
 
 export const josefstadtMapState = {
   name: "Josefstadt, Vienna, Austria",
