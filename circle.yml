@@ -1,0 +1,6 @@
+deployment:
+  production:
+    branch: main
+    commands:
+      - npm run build
+      - surge --project ./web/dist
