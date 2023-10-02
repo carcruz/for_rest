@@ -44,7 +44,7 @@ function Model() {
             }}
           />
           <div className="flex flex-col py-10 md:flex-row gap-10">
-            <div className="w-1/2">
+            <div className="w-full md:w-1/2">
               <h3>Realworld data</h3>
               <div className="pt-5">
                 <Map
@@ -54,7 +54,7 @@ function Model() {
                 />
               </div>
             </div>
-            <div className="w-1/2">
+            <div className="w-full md:w-1/2">
               <h3>Model data</h3>
               <div className="pt-5">
                 <Map
@@ -65,21 +65,15 @@ function Model() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col px-10 md:flex-row">
-            <div className="w-1/3">
-              <div style={{ height: "350px" }} className="pt-12">
-                <ForestLineChart />
-              </div>
+          <div className="flex flex-col  md:flex-row">
+            <div className="w-full md:w-1/3 pt-12 h-[350px]">
+              <ForestLineChart />
             </div>
-            <div className="w-1/3">
-              <div style={{ height: "350px" }} className="pt-12">
-                <ForestLineChart />
-              </div>
+            <div className="w-full md:w-1/3 pt-12 h-[350px]">
+              <ForestLineChart />
             </div>
-            <div className="w-1/3">
-              <div style={{ height: "350px" }} className="pt-12">
-                <ForestLineChart />
-              </div>
+            <div className="w-full md:w-1/3 pt-12 h-[350px]">
+              <ForestLineChart />
             </div>
           </div>
         </div>

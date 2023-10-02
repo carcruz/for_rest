@@ -7,10 +7,10 @@ function FactorsOfGrowing() {
       <div className=" bg-slate-100 min-h-full overflow-hidden">
         <div className="container mx-auto px-4 py-10">
           <h2>Factors of Growing</h2>
-          <div className="flex flex-col p-10 md:flex-row">
-            <div className="w-1/2">
+          <div className="flex flex-col md:flex-row">
+            <div className="w-full mb-6 md:mb-12 md:mt-24 md:w-1/2">
               <h3>Gradual addition of complexity</h3>
-              <div style={{ height: "450px" }} className="pt-12">
+              <div className="pt-12">
                 <p>
                   Distribution of trees in a forest is not random, since local
                   competition powered by the laws of metabolic growth determines
@@ -33,10 +33,8 @@ function FactorsOfGrowing() {
                 </p>
               </div>
             </div>
-            <div className="w-1/2">
-              <div className="">
-                <Resources />
-              </div>
+            <div className="md:w-1/2">
+              <Resources />
             </div>
           </div>
         </div>

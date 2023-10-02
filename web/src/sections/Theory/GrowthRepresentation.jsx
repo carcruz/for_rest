@@ -20,7 +20,7 @@ class GrowthRepresentation extends PureComponent {
     return (
       <iframe
         width="100%"
-        height="554"
+        height="100%"
         src="https://observablehq.com/embed/b69d137c875b2a74?cells=viewof+canvas"
       ></iframe>
     );

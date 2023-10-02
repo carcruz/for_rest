@@ -6,22 +6,16 @@ function Biodiversity() {
   return (
     <SectionWrapper sectionId="biodiversity">
       <div className=" bg-slate-200 w-full h-full">
-        <div className="container mx-auto py-10">
+        <div className="container mx-auto px-4 py-10">
           <h2>Biodiversity</h2>
           <div className="flex flex-col py-10 md:flex-row">
             <div className="w-full">
               <h3></h3>
-              <div className="flex">
-                <div
-                  style={{ height: "600px", width: "100%" }}
-                  className="pt-12"
-                >
+              <div className="flex flex-col md:flex-row">
+                <div className="pt-12 w-full h-[400px]  md:h-[600px]">
                   <CirclePackingViz data={startData} />
                 </div>
-                <div
-                  style={{ height: "600px", width: "100%" }}
-                  className="pt-12"
-                >
+                <div className="pt-12 w-full h-[400px]  md:h-[600px]">
                   <CirclePackingViz data={endData} />
                 </div>
               </div>
