@@ -17,14 +17,14 @@ function Theory() {
             and girth, allowing it to thrive and become a vital component of
             thex ecosystem.
           </p>
-          <div className="flex flex-col p-10 md:flex-row">
-            <div className="w-1/2">
+          <div className="flex flex-col md:p-10 md:flex-row">
+            <div className="md:w-1/2">
               <h3>Growth representation</h3>
               <div style={{ height: "450px" }} className="pt-12">
                 <GrowthRepresentation />
               </div>
             </div>
-            <div className="w-1/2">
+            <div className="md:w-1/2">
               <h3></h3>
               <div style={{ height: "450px" }} className="pt-20">
                 <GrowthChart />
